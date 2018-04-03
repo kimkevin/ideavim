@@ -6,9 +6,8 @@ import com.maddyhome.idea.vim.ex.CommandHandler;
 import com.maddyhome.idea.vim.ex.ExCommand;
 import com.maddyhome.idea.vim.ex.ExException;
 import com.maddyhome.idea.vim.ex.ExOutputModel;
+import com.maddyhome.idea.vim.helper.ShellCommandHelper;
 import org.jetbrains.annotations.NotNull;
-
-import java.io.*;
 
 public class GitHandler extends CommandHandler {
 
@@ -25,30 +24,7 @@ public class GitHandler extends CommandHandler {
         script.append("cd " + editor.getProject().getBasePath() + "\n");
         script.append("git " + argument + "\n");
 
-        ExOutputModel.getInstance(editor).output(getResultFromShell(script));
+        ExOutputModel.getInstance(editor).output(ShellCommandHelper.getResultFromShell(script));
         return true;
-    }
-
-    private String getResultFromShell(StringBuilder script) {
-        String result = "";
-        try {
-            ProcessBuilder pb = new ProcessBuilder("/bin/bash");
-            Process bash = pb.start();
-
-            PrintStream ps = new PrintStream(bash.getOutputStream());
-            ps.println(script);
-            ps.close();
-
-            BufferedReader br = new BufferedReader(new InputStreamReader(bash.getInputStream()));
-
-            String line;
-            while (null != (line = br.readLine())) {
-                result += "> " + line + "\n";
-            }
-            br.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return result;
     }
 }
