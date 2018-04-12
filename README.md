@@ -1,4 +1,4 @@
-IdeaVim
+IdeaVim customized for Android Studio
 =======
 
 <div>
@@ -32,6 +32,15 @@ Resources:
 * [Bug tracker](http://youtrack.jetbrains.com/issues/VIM)
 * [Continuous integration builds](http://teamcity.jetbrains.com/project.html?projectId=IdeaVim&guest=1)
 * [@IdeaVim](http://twitter.com/ideavim) in Twitter
+
+
+Additional Commands on EX mode
+------------
+
+Supported:
+
+* Git
+* Adb
 
 
 Installation
