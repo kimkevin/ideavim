@@ -39,8 +39,13 @@ Additional Commands on EX mode
 
 Supported:
 
-* Git
-* Adb
+- Git
+- Adb
+  - `adb start <device_ip_address>`
+  - `adb start` : Once it's connected, IP address will be existed. 
+- Google Search
+  - `gg <query_string>`
+  - `gg` : If clipboard has a string
 
 
 Installation
