@@ -34,7 +34,7 @@ Resources:
 * [@IdeaVim](http://twitter.com/ideavim) in Twitter
 
 
-Additional Commands on EX mode
+Additional EX Commands
 ------------
 
 Supported:
